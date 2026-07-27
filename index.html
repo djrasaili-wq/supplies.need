@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#171717" />
+  <title>ICC Supply Request</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero">
+      <div class="brand-mark">ICC</div>
+      <p class="eyebrow">Island Community Church</p>
+      <h1>Supply Request</h1>
+      <p class="hero-copy">
+        Notice something running low? Send a quick request so our facilities team can restock it.
+      </p>
+    </section>
+
+    <section class="form-card">
+      <!-- Replace YOUR_EMAIL@example.com with the email address that should receive requests. -->
+      <form id="supplyForm" action="https://formsubmit.co/YOUR_EMAIL@example.com" method="POST">
+        <input type="hidden" name="_subject" value="New ICC Supply Request" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_next" id="nextUrl" value="" />
+
+        <div class="field-grid">
+          <div class="field">
+            <label for="name">Your name</label>
+            <input id="name" name="Submitted by" type="text" placeholder="First and last name" required />
+          </div>
+
+          <div class="field">
+            <label for="area">Area</label>
+            <select id="area" name="Area" required>
+              <option value="" disabled selected>Select an area</option>
+              <option>Lobby / Coffee Station</option>
+              <option>Kitchen</option>
+              <option>Sanctuary</option>
+              <option>Kids Ministry</option>
+              <option>Youth Ministry</option>
+              <option>Bathrooms</option>
+              <option>Office</option>
+              <option>Cleaning Supplies</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="item">What item is needed?</label>
+          <input id="item" name="Item needed" type="text" list="common-items"
+                 placeholder="Example: coffee cups, creamer, paper towels" required />
+          <datalist id="common-items">
+            <option value="Coffee">
+            <option value="Coffee cups">
+            <option value="Cup lids">
+            <option value="Creamer">
+            <option value="Sugar">
+            <option value="Sweetener">
+            <option value="Stir sticks">
+            <option value="Napkins">
+            <option value="Paper towels">
+            <option value="Toilet paper">
+            <option value="Hand soap">
+            <option value="Trash bags">
+            <option value="Cleaning spray">
+            <option value="Bottled water">
+          </datalist>
+        </div>
+
+        <div class="field-grid">
+          <div class="field">
+            <label for="status">How much is left?</label>
+            <select id="status" name="Current stock level" required>
+              <option value="" disabled selected>Select stock level</option>
+              <option>Completely out</option>
+              <option>Almost out</option>
+              <option>Running low</option>
+              <option>Need soon</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="quantity">Suggested quantity</label>
+            <input id="quantity" name="Suggested quantity" type="text" placeholder="Example: 2 boxes" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="location">Exact location</label>
+          <input id="location" name="Exact location" type="text"
+                 placeholder="Example: cabinet under the lobby coffee counter" />
+        </div>
+
+        <div class="field">
+          <label for="notes">Additional notes</label>
+          <textarea id="notes" name="Additional notes" rows="4"
+                    placeholder="Brand, size, urgency, or anything else we should know"></textarea>
+        </div>
+
+        <button type="submit">
+          <span>Send Supply Request</span>
+          <span aria-hidden="true">→</span>
+        </button>
+
+        <p class="form-note">
+          Please submit one request per item whenever possible.
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
