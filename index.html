@@ -4,99 +4,222 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#171717" />
+
   <title>ICC Supply Request</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+
   <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
   <main class="page-shell">
+
     <section class="hero">
       <div class="brand-mark">ICC</div>
+
       <p class="eyebrow">Island Community Church</p>
+
       <h1>Supply Request</h1>
+
       <p class="hero-copy">
-        Notice something running low? Send a quick request so our facilities team can restock it.
+        Notice something running low? Send a quick request so the correct ICC
+        team member can restock it.
       </p>
     </section>
 
     <section class="form-card">
-      <!-- Replace YOUR_EMAIL@example.com with the email address that should receive requests. -->
-      <form id="supplyForm" action="https://formsubmit.co/YOUR_EMAIL@example.com" method="POST">
-        <input type="hidden" name="_subject" value="New ICC Supply Request" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_next" id="nextUrl" value="" />
+
+      <form
+        id="supplyForm"
+        action="https://formsubmit.co/darshan@iccmemphis.com"
+        method="POST"
+      >
+
+        <!-- FormSubmit settings -->
+        <input
+          type="hidden"
+          name="_subject"
+          id="emailSubject"
+          value="New ICC Supply Request"
+        />
+
+        <input
+          type="hidden"
+          name="_template"
+          value="table"
+        />
+
+        <input
+          type="hidden"
+          name="_captcha"
+          value="false"
+        />
+
+        <input
+          type="hidden"
+          name="_next"
+          id="nextUrl"
+          value=""
+        />
+
+        <input
+          type="hidden"
+          name="_cc"
+          id="ccEmail"
+          value=""
+          disabled
+        />
 
         <div class="field-grid">
+
           <div class="field">
             <label for="name">Your name</label>
-            <input id="name" name="Submitted by" type="text" placeholder="First and last name" required />
+
+            <input
+              id="name"
+              name="Submitted by"
+              type="text"
+              placeholder="First and last name"
+              required
+            />
           </div>
 
           <div class="field">
             <label for="area">Area</label>
-           <select id="area" name="Area" required>
-             <option value="" disabled selected>Select an area</option>
-             <option value="lobby">Lobby / Coffee Station</option>
-             <option value="cleaning">Cleaning Supplies</option>
-             <option value="kids">Kids Ministry</option>
-             <option value="other">Other</option>
-           </select>
+
+            <select
+              id="area"
+              name="Area"
+              required
+            >
+              <option value="" disabled selected>
+                Select an area
+              </option>
+
+              <option value="lobby">
+                Lobby / Coffee Station
+              </option>
+
+              <option value="cleaning">
+                Cleaning Supplies
+              </option>
+
+              <option value="kids">
+                Kids Ministry
+              </option>
+
+              <option value="other">
+                Other
+              </option>
+            </select>
           </div>
+
         </div>
 
         <div class="field">
           <label for="item">What item is needed?</label>
-          <input id="item" name="Item needed" type="text" list="common-items"
-                 placeholder="Example: coffee cups, creamer, paper towels" required />
+
+          <input
+            id="item"
+            name="Item needed"
+            type="text"
+            list="common-items"
+            placeholder="Example: coffee cups, creamer, paper towels"
+            required
+          />
+
           <datalist id="common-items">
-            <option value="Coffee">
-            <option value="Coffee cups">
-            <option value="Cup lids">
-            <option value="Creamer">
-            <option value="Sugar">
-            <option value="Sweetener">
-            <option value="Stir sticks">
-            <option value="Napkins">
-            <option value="Paper towels">
-            <option value="Toilet paper">
-            <option value="Hand soap">
-            <option value="Trash bags">
-            <option value="Cleaning spray">
-            <option value="Bottled water">
+            <option value="Coffee"></option>
+            <option value="Coffee cups"></option>
+            <option value="Cup lids"></option>
+            <option value="Creamer"></option>
+            <option value="Sugar"></option>
+            <option value="Sweetener"></option>
+            <option value="Stir sticks"></option>
+            <option value="Napkins"></option>
+            <option value="Paper towels"></option>
+            <option value="Toilet paper"></option>
+            <option value="Hand soap"></option>
+            <option value="Trash bags"></option>
+            <option value="Cleaning spray"></option>
+            <option value="Bottled water"></option>
+            <option value="Kids snacks"></option>
+            <option value="Kids craft supplies"></option>
           </datalist>
         </div>
 
         <div class="field-grid">
+
           <div class="field">
             <label for="status">How much is left?</label>
-            <select id="status" name="Current stock level" required>
-              <option value="" disabled selected>Select stock level</option>
-              <option>Completely out</option>
-              <option>Almost out</option>
-              <option>Running low</option>
-              <option>Need soon</option>
+
+            <select
+              id="status"
+              name="Current stock level"
+              required
+            >
+              <option value="" disabled selected>
+                Select stock level
+              </option>
+
+              <option value="Completely out">
+                Completely out
+              </option>
+
+              <option value="Almost out">
+                Almost out
+              </option>
+
+              <option value="Running low">
+                Running low
+              </option>
+
+              <option value="Need soon">
+                Need soon
+              </option>
             </select>
           </div>
 
           <div class="field">
             <label for="quantity">Suggested quantity</label>
-            <input id="quantity" name="Suggested quantity" type="text" placeholder="Example: 2 boxes" />
+
+            <input
+              id="quantity"
+              name="Suggested quantity"
+              type="text"
+              placeholder="Example: 2 boxes"
+            />
           </div>
+
         </div>
 
         <div class="field">
           <label for="location">Exact location</label>
-          <input id="location" name="Exact location" type="text"
-                 placeholder="Example: cabinet under the lobby coffee counter" />
+
+          <input
+            id="location"
+            name="Exact location"
+            type="text"
+            placeholder="Example: cabinet under the lobby coffee counter"
+          />
         </div>
 
         <div class="field">
           <label for="notes">Additional notes</label>
-          <textarea id="notes" name="Additional notes" rows="4"
-                    placeholder="Brand, size, urgency, or anything else we should know"></textarea>
+
+          <textarea
+            id="notes"
+            name="Additional notes"
+            rows="4"
+            placeholder="Brand, size, urgency, or anything else we should know"
+          ></textarea>
         </div>
 
         <button type="submit">
@@ -107,10 +230,146 @@
         <p class="form-note">
           Please submit one request per item whenever possible.
         </p>
+
       </form>
+
     </section>
+
   </main>
 
-  <script src="script.js"></script>
+  <script>
+    const form = document.getElementById("supplyForm");
+    const area = document.getElementById("area");
+    const nextUrl = document.getElementById("nextUrl");
+    const ccEmail = document.getElementById("ccEmail");
+    const emailSubject = document.getElementById("emailSubject");
+
+    /*
+      After submission, the user will return to the same webpage
+      and see the confirmation message.
+    */
+    nextUrl.value =
+      window.location.origin +
+      window.location.pathname +
+      "?submitted=true";
+
+    /*
+      Email routing based on selected area.
+    */
+    const routing = {
+      lobby: {
+        email: "darshan@iccmemphis.com",
+        cc: "",
+        subject: "ICC Lobby / Coffee Supply Request"
+      },
+
+      cleaning: {
+        email: "darshan@iccmemphis.com",
+        cc: "",
+        subject: "ICC Cleaning Supply Request"
+      },
+
+      kids: {
+        email: "abby@iccmemphis.com",
+        cc: "willkassner@iccmemphis.com",
+        subject: "ICC Kids Ministry Supply Request"
+      },
+
+      other: {
+        email: "darshan@iccmemphis.com",
+        cc: "",
+        subject: "Other ICC Supply Request"
+      }
+    };
+
+    form.addEventListener("submit", function (event) {
+      const selectedArea = area.value;
+      const selectedRouting = routing[selectedArea];
+
+      if (!selectedRouting) {
+        event.preventDefault();
+        alert("Please select an area.");
+        return;
+      }
+
+      /*
+        Change the recipient before submitting.
+      */
+      form.action =
+        "https://formsubmit.co/" +
+        selectedRouting.email;
+
+      /*
+        Change the email subject.
+      */
+      emailSubject.value = selectedRouting.subject;
+
+      /*
+        Add Will as a CC only for Kids Ministry.
+      */
+      if (selectedRouting.cc) {
+        ccEmail.value = selectedRouting.cc;
+        ccEmail.disabled = false;
+      } else {
+        ccEmail.value = "";
+        ccEmail.disabled = true;
+      }
+    });
+
+    /*
+      Show a confirmation screen after submission.
+    */
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.get("submitted") === "true") {
+      const card = document.querySelector(".form-card");
+
+      card.innerHTML = `
+        <div style="text-align:center; padding:28px 8px;">
+
+          <div style="font-size:3rem; margin-bottom:12px;">
+            ✓
+          </div>
+
+          <h2
+            style="
+              font-family:'Playfair Display', serif;
+              font-size:2rem;
+              margin:0 0 10px;
+            "
+          >
+            Request sent
+          </h2>
+
+          <p
+            style="
+              color:#68645d;
+              line-height:1.6;
+              margin:0 0 24px;
+            "
+          >
+            Thank you for helping ICC stay stocked and ready.
+          </p>
+
+          <a
+            href="${window.location.pathname}"
+            style="
+              display:inline-block;
+              padding:14px 22px;
+              border-radius:14px;
+              background:#1f4d3c;
+              color:white;
+              text-decoration:none;
+              font-weight:700;
+            "
+          >
+            Submit another item
+          </a>
+
+        </div>
+      `;
+    }
+  </script>
+
 </body>
 </html>
