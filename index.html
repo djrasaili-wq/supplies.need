@@ -29,8 +29,8 @@
       <h1>Supply Request</h1>
 
       <p class="hero-copy">
-        Notice something running low? Send a quick request so the correct ICC
-        team member can restock it.
+        Notice something running low? Send a request so the correct ICC team
+        member can restock it.
       </p>
     </section>
 
@@ -42,7 +42,6 @@
         method="POST"
       >
 
-        <!-- FormSubmit settings -->
         <input
           type="hidden"
           name="_subject"
@@ -124,91 +123,96 @@
         </div>
 
         <div class="field">
-          <label for="item">What item is needed?</label>
+          <div class="items-heading">
+            <label>What items are needed?</label>
 
-          <input
-            id="item"
-            name="Item needed"
-            type="text"
-            list="common-items"
-            placeholder="Example: coffee cups, creamer, paper towels"
-            required
-          />
-
-          <datalist id="common-items">
-            <option value="Coffee"></option>
-            <option value="Coffee cups"></option>
-            <option value="Cup lids"></option>
-            <option value="Creamer"></option>
-            <option value="Sugar"></option>
-            <option value="Sweetener"></option>
-            <option value="Stir sticks"></option>
-            <option value="Napkins"></option>
-            <option value="Paper towels"></option>
-            <option value="Toilet paper"></option>
-            <option value="Hand soap"></option>
-            <option value="Trash bags"></option>
-            <option value="Cleaning spray"></option>
-            <option value="Bottled water"></option>
-            <option value="Kids snacks"></option>
-            <option value="Kids craft supplies"></option>
-          </datalist>
-        </div>
-
-        <div class="field-grid">
-
-          <div class="field">
-            <label for="status">How much is left?</label>
-
-            <select
-              id="status"
-              name="Current stock level"
-              required
-            >
-              <option value="" disabled selected>
-                Select stock level
-              </option>
-
-              <option value="Completely out">
-                Completely out
-              </option>
-
-              <option value="Almost out">
-                Almost out
-              </option>
-
-              <option value="Running low">
-                Running low
-              </option>
-
-              <option value="Need soon">
-                Need soon
-              </option>
-            </select>
+            <p id="itemInstructions" class="item-instructions">
+              Select an area first.
+            </p>
           </div>
 
-          <div class="field">
-            <label for="quantity">Suggested quantity</label>
+          <div id="itemsContainer">
 
-            <input
-              id="quantity"
-              name="Suggested quantity"
-              type="text"
-              placeholder="Example: 2 boxes"
-            />
+            <div class="item-row">
+              <input
+                class="item-input"
+                type="text"
+                placeholder="Enter an item"
+                required
+              />
+
+              <button
+                class="remove-item-button"
+                type="button"
+                aria-label="Remove item"
+                disabled
+              >
+                ×
+              </button>
+            </div>
+
           </div>
 
+          <button
+            id="addItemButton"
+            class="add-item-button"
+            type="button"
+          >
+            <span aria-hidden="true">+</span>
+            Add another item
+          </button>
         </div>
+
+        <datalist id="lobby-items">
+          <option value="Coffee Grounds"></option>
+          <option value="Coffee Cups"></option>
+          <option value="Coffee Cup Sleeves"></option>
+          <option value="Coffee Cup Lids"></option>
+          <option value="French Vanilla Creamer"></option>
+          <option value="Half and Half"></option>
+          <option value="Syrup"></option>
+          <option value="Coffee Filter"></option>
+          <option value="Honey"></option>
+          <option value="Tea Bags"></option>
+          <option value="Clear Cups 9oz"></option>
+          <option value="Clear Cups 16oz"></option>
+          <option value="Red Cups"></option>
+          <option value="Dinner Plates"></option>
+          <option value="Dessert Plates"></option>
+          <option value="Water"></option>
+          <option value="Knife"></option>
+          <option value="Spoon"></option>
+          <option value="Fork"></option>
+        </datalist>
 
         <div class="field">
-          <label for="location">Exact location</label>
+          <label for="status">How much is left?</label>
 
-          <input
-            id="location"
-            name="Exact location"
-            type="text"
-            placeholder="Example: cabinet under the lobby coffee counter"
-          />
+          <select
+            id="status"
+            name="Current stock level"
+            required
+          >
+            <option value="" disabled selected>
+              Select stock level
+            </option>
+
+            <option value="Completely out">
+              Completely out
+            </option>
+
+            <option value="Almost out">
+              Almost out
+            </option>
+
+            <option value="Running low">
+              Running low
+            </option>
+
+            <option value="Need soon">
+              Need soon
+            </option>
+          </select>
         </div>
 
         <div class="field">
@@ -222,14 +226,10 @@
           ></textarea>
         </div>
 
-        <button type="submit">
+        <button class="submit-button" type="submit">
           <span>Send Supply Request</span>
           <span aria-hidden="true">→</span>
         </button>
-
-        <p class="form-note">
-          Please submit one request per item whenever possible.
-        </p>
 
       </form>
 
@@ -237,139 +237,6 @@
 
   </main>
 
-  <script>
-    const form = document.getElementById("supplyForm");
-    const area = document.getElementById("area");
-    const nextUrl = document.getElementById("nextUrl");
-    const ccEmail = document.getElementById("ccEmail");
-    const emailSubject = document.getElementById("emailSubject");
-
-    /*
-      After submission, the user will return to the same webpage
-      and see the confirmation message.
-    */
-    nextUrl.value =
-      window.location.origin +
-      window.location.pathname +
-      "?submitted=true";
-
-    /*
-      Email routing based on selected area.
-    */
-    const routing = {
-      lobby: {
-        email: "darshan@iccmemphis.com",
-        cc: "",
-        subject: "ICC Lobby / Coffee Supply Request"
-      },
-
-      cleaning: {
-        email: "darshan@iccmemphis.com",
-        cc: "",
-        subject: "ICC Cleaning Supply Request"
-      },
-
-      kids: {
-        email: "abby@iccmemphis.com",
-        cc: "willkassner@iccmemphis.com",
-        subject: "ICC Kids Ministry Supply Request"
-      },
-
-      other: {
-        email: "darshan@iccmemphis.com",
-        cc: "",
-        subject: "Other ICC Supply Request"
-      }
-    };
-
-    form.addEventListener("submit", function (event) {
-      const selectedArea = area.value;
-      const selectedRouting = routing[selectedArea];
-
-      if (!selectedRouting) {
-        event.preventDefault();
-        alert("Please select an area.");
-        return;
-      }
-
-      /*
-        Change the recipient before submitting.
-      */
-      form.action =
-        "https://formsubmit.co/" +
-        selectedRouting.email;
-
-      /*
-        Change the email subject.
-      */
-      emailSubject.value = selectedRouting.subject;
-
-      /*
-        Add Will as a CC only for Kids Ministry.
-      */
-      if (selectedRouting.cc) {
-        ccEmail.value = selectedRouting.cc;
-        ccEmail.disabled = false;
-      } else {
-        ccEmail.value = "";
-        ccEmail.disabled = true;
-      }
-    });
-
-    /*
-      Show a confirmation screen after submission.
-    */
-    const params = new URLSearchParams(window.location.search);
-
-    if (params.get("submitted") === "true") {
-      const card = document.querySelector(".form-card");
-
-      card.innerHTML = `
-        <div style="text-align:center; padding:28px 8px;">
-
-          <div style="font-size:3rem; margin-bottom:12px;">
-            ✓
-          </div>
-
-          <h2
-            style="
-              font-family:'Playfair Display', serif;
-              font-size:2rem;
-              margin:0 0 10px;
-            "
-          >
-            Request sent
-          </h2>
-
-          <p
-            style="
-              color:#68645d;
-              line-height:1.6;
-              margin:0 0 24px;
-            "
-          >
-            Thank you for helping ICC stay stocked and ready.
-          </p>
-
-          <a
-            href="${window.location.pathname}"
-            style="
-              display:inline-block;
-              padding:14px 22px;
-              border-radius:14px;
-              background:#1f4d3c;
-              color:white;
-              text-decoration:none;
-              font-weight:700;
-            "
-          >
-            Submit another item
-          </a>
-
-        </div>
-      `;
-    }
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
