@@ -182,3 +182,109 @@ button:active {
     border-radius: 22px;
   }
 }
+.items-heading {
+  margin-bottom: 12px;
+}
+
+.items-heading label {
+  margin-bottom: 4px;
+}
+
+.item-instructions {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.item-row {
+  display: grid;
+  grid-template-columns: 1fr 48px;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.item-row input {
+  margin: 0;
+}
+
+.remove-item-button {
+  width: 48px;
+  height: 52px;
+  min-height: 52px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #f7f4ee;
+  color: #6c2828;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.remove-item-button:hover {
+  background: #efe7df;
+  color: #6c2828;
+  transform: none;
+}
+
+.remove-item-button:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.add-item-button {
+  width: auto;
+  min-height: 46px;
+  margin-top: 4px;
+  padding: 0 18px;
+  justify-content: flex-start;
+  border: 1px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+}
+
+.add-item-button:hover {
+  background: rgba(31, 77, 60, 0.08);
+  color: var(--accent);
+}
+
+.submit-button {
+  width: 100%;
+}
+
+.success-message {
+  padding: 28px 8px;
+  text-align: center;
+}
+
+.success-icon {
+  margin-bottom: 12px;
+  font-size: 3rem;
+}
+
+.success-message h2 {
+  margin: 0 0 10px;
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+}
+
+.success-message p {
+  margin: 0 0 24px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.success-message a {
+  display: inline-block;
+  padding: 14px 22px;
+  border-radius: 14px;
+  background: var(--accent);
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+@media (max-width: 500px) {
+  .item-row {
+    grid-template-columns: 1fr 46px;
+  }
+}
