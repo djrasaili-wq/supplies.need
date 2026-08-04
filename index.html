@@ -3,240 +3,93 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#171717" />
-
+  <meta name="theme-color" content="#414B51" />
   <title>ICC Supply Request</title>
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
-    rel="stylesheet"
-  />
-
-  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=5" />
 </head>
-
 <body>
   <main class="page-shell">
-
     <section class="hero">
-      <div class="brand-mark">ICC</div>
-
+      <img class="icc-logo" src="icc-logo.png" alt="Island Community Church logo" />
       <p class="eyebrow">Island Community Church</p>
-
       <h1>Supply Request</h1>
-
-      <p class="hero-copy">
-        Notice something running low? Send a request so the correct ICC team
-        member can restock it.
-      </p>
     </section>
 
     <section class="form-card">
-
-      <form
-        id="supplyForm"
-        action="https://formsubmit.co/darshan@iccmemphis.com"
-        method="POST"
-      >
-
-        <input
-          type="hidden"
-          name="_subject"
-          id="emailSubject"
-          value="New ICC Supply Request"
-        />
-
-        <input
-          type="hidden"
-          name="_template"
-          value="table"
-        />
-
-        <input
-          type="hidden"
-          name="_captcha"
-          value="false"
-        />
-
-        <input
-          type="hidden"
-          name="_next"
-          id="nextUrl"
-          value=""
-        />
-
-        <input
-          type="hidden"
-          name="_cc"
-          id="ccEmail"
-          value=""
-          disabled
-        />
+      <form id="supplyForm" action="https://formsubmit.co/darshan@iccmemphis.com" method="POST">
+        <input type="hidden" id="emailSubject" name="_subject" value="ICC Supply Request" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" id="nextUrl" name="_next" value="" />
+        <input type="hidden" id="ccEmail" name="_cc" value="" disabled />
+        <input type="hidden" id="emailMessage" name="Requested items" value="" />
 
         <div class="field-grid">
-
           <div class="field">
             <label for="name">Your name</label>
-
-            <input
-              id="name"
-              name="Submitted by"
-              type="text"
-              placeholder="First and last name"
-              required
-            />
+            <input id="name" name="Submitted by" type="text" placeholder="First and last name" autocomplete="name" required />
           </div>
-
           <div class="field">
             <label for="area">Area</label>
-
-            <select
-              id="area"
-              name="Area"
-              required
-            >
-              <option value="" disabled selected>
-                Select an area
-              </option>
-
-              <option value="lobby">
-                Lobby / Coffee Station
-              </option>
-
-              <option value="cleaning">
-                Cleaning Supplies
-              </option>
-
-              <option value="kids">
-                Kids Ministry
-              </option>
-
-              <option value="other">
-                Other
-              </option>
+            <select id="area" name="Area" required>
+              <option value="" disabled selected>Select an area</option>
+              <option value="Lobby">Lobby</option>
+              <option value="Coffee / Tea">Coffee / Tea</option>
+              <option value="Kids Ministry">Kids Ministry</option>
+              <option value="Others">Others</option>
             </select>
           </div>
-
         </div>
 
         <div class="field">
-          <div class="items-heading">
-            <label>What items are needed?</label>
-
-            <p id="itemInstructions" class="item-instructions">
-              Select an area first.
-            </p>
+          <div class="items-header">
+            <label>Items needed</label>
+            <p class="field-help">Add each item and select how much is left.</p>
           </div>
 
           <div id="itemsContainer">
-
             <div class="item-row">
-              <input
-                class="item-input"
-                type="text"
-                placeholder="Enter an item"
-                required
-              />
-
-              <button
-                class="remove-item-button"
-                type="button"
-                aria-label="Remove item"
-                disabled
-              >
-                ×
-              </button>
+              <div class="item-field">
+                <label class="visually-hidden" for="item-1">Item needed</label>
+                <input id="item-1" class="item-input" type="text" placeholder="Item needed" required />
+              </div>
+              <div class="stock-field">
+                <label class="visually-hidden" for="stock-1">How much is left</label>
+                <select id="stock-1" class="stock-input" required>
+                  <option value="" disabled selected>How much is left?</option>
+                  <option value="Completely out">Completely out</option>
+                  <option value="Almost out">Almost out</option>
+                  <option value="Running low">Running low</option>
+                  <option value="Need soon">Need soon</option>
+                </select>
+              </div>
+              <button class="remove-item-button" type="button" aria-label="Remove item" disabled>×</button>
             </div>
-
           </div>
 
-          <button
-            id="addItemButton"
-            class="add-item-button"
-            type="button"
-          >
+          <button id="addItemButton" class="add-item-button" type="button">
             <span aria-hidden="true">+</span>
             Add another item
           </button>
         </div>
 
-        <datalist id="lobby-items">
-          <option value="Coffee Grounds"></option>
-          <option value="Coffee Cups"></option>
-          <option value="Coffee Cup Sleeves"></option>
-          <option value="Coffee Cup Lids"></option>
-          <option value="French Vanilla Creamer"></option>
-          <option value="Half and Half"></option>
-          <option value="Syrup"></option>
-          <option value="Coffee Filter"></option>
-          <option value="Honey"></option>
-          <option value="Tea Bags"></option>
-          <option value="Clear Cups 9oz"></option>
-          <option value="Clear Cups 16oz"></option>
-          <option value="Red Cups"></option>
-          <option value="Dinner Plates"></option>
-          <option value="Dessert Plates"></option>
-          <option value="Water"></option>
-          <option value="Knife"></option>
-          <option value="Spoon"></option>
-          <option value="Fork"></option>
-        </datalist>
-
-        <div class="field">
-          <label for="status">How much is left?</label>
-
-          <select
-            id="status"
-            name="Current stock level"
-            required
-          >
-            <option value="" disabled selected>
-              Select stock level
-            </option>
-
-            <option value="Completely out">
-              Completely out
-            </option>
-
-            <option value="Almost out">
-              Almost out
-            </option>
-
-            <option value="Running low">
-              Running low
-            </option>
-
-            <option value="Need soon">
-              Need soon
-            </option>
-          </select>
-        </div>
-
         <div class="field">
           <label for="notes">Additional notes</label>
-
-          <textarea
-            id="notes"
-            name="Additional notes"
-            rows="4"
-            placeholder="Brand, size, urgency, or anything else we should know"
-          ></textarea>
+          <textarea id="notes" name="Additional notes" rows="4" placeholder="Add any helpful details"></textarea>
         </div>
 
         <button class="submit-button" type="submit">
           <span>Send Supply Request</span>
           <span aria-hidden="true">→</span>
         </button>
-
       </form>
-
     </section>
 
+    <p class="bottom-message">Notice something running low? Send a quick request so our facilities team can restock it.</p>
   </main>
-
-  <script src="script.js"></script>
+  <script src="script.js?v=5"></script>
 </body>
 </html>

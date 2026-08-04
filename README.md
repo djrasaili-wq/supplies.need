@@ -1,21 +1,22 @@
 # ICC Supply Request Website
 
-## Setup
+Upload these four files to the root of the GitHub repository:
 
-1. Open `index.html` in a text editor.
-2. Find this line:
+- index.html
+- styles.css
+- script.js
+- icc-logo.png
 
-   action="https://formsubmit.co/YOUR_EMAIL@example.com"
+Every submission goes through darshan@iccmemphis.com. Copies are sent to:
 
-3. Replace `YOUR_EMAIL@example.com` with the email address that should receive supply requests.
-4. Upload all three website files to GitHub Pages, Netlify, or another web host.
+- Lobby: tiffany@iccmemphis.com
+- Kids Ministry: abby@iccmemphis.com and willkassner@iccmemphis.com
+- Coffee / Tea and Others: Darshan only
 
-## Important first-submission step
+Email subject:
 
-The first time someone submits the form, FormSubmit will send an activation email to the receiving address. Open that email and confirm the form. After confirmation, future requests will arrive normally.
+[Area] | [Your name]
 
-## Files
+Requested-items field:
 
-- `index.html` — website structure and form
-- `styles.css` — visual design and mobile layout
-- `script.js` — success screen and setup check
+[Item] : [How much is left]
